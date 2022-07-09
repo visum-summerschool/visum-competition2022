@@ -44,7 +44,7 @@ $ python code/model_train.py
 This command has several constant variables you can change:
 ```
 BATCH_SIZE - the batch size for the DataLoader
-NUM_EPOCHS - the number of epochs for the trainin
+NUM_EPOCHS - the number of epochs for the training
 IMG_SIZE - the image size you will use (H, W)
 VAL_MAP_FREQ - the frequency you want the training loop to print the mAP values
 ```
