@@ -14,7 +14,7 @@ $ git clone git@github.com:visum-summerschool/visum-competition2022.git
 Before training the models, we must be sure that the database structure is built. To download the data and build the structure, run the following command.
 ```bash
 $ cd visum-competition2022
-$ bash download_data.sh
+$ bash download_data_participants.sh
 ```
 
 ## Create a Virtual Environment and Activate It
