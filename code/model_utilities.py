@@ -84,6 +84,8 @@ def evaluate(model, data_loader, device):
     iou_types = ['bbox', 'segm']
     coco_evaluator = CocoEvaluator(coco, iou_types)
 
+    save_result = dict()     # new line of code
+
     for images, targets in tqdm(data_loader):
         images = list(img.to(device) for img in images)
 
@@ -96,8 +98,16 @@ def evaluate(model, data_loader, device):
 
         res = {target["image_id"].item(): output for target,
                output in zip(targets, outputs)}
-        coco_evaluator.update(res)
 
+        coco_evaluator.update(res)
+	save_results.update(res)   # new line of code
+	
+    import pickle as pkl                                    # new line of code
+    try:                                                    # new line of code
+        with open("/data/predictions.pkl", "wb") as file:   # new line of code
+            pkl.dump(results, file)                         # new line of code
+    except:                                                 # new line of code
+        print("Not found locally")                          # new line of code
     coco_evaluator.synchronize_between_processes()
 
     # accumulate predictions from all images
